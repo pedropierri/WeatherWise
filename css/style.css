@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+:root {
+    --bg-gradient-start: #6dd5ed;
+    --bg-gradient-end: #2193b0;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --primary-text: #2c3e50;
+    --secondary-text: #7f8c8d;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --accent-color: #e74c3c;
+}
+
+/* Reset e Fonte */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--primary-text);
+    overflow: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 450px;
+    padding: 30px;
+    background: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Título e Input */
+.app-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px var(--shadow-color);
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.input-group:focus-within {
+    box-shadow: 0 0 0 3px var(--bg-gradient-start), inset 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+#city-input {
+    flex-grow: 1;
+    padding: 15px 20px;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 10px 0 0 10px;
+}
+
+.search-btn {
+    padding: 15px 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--secondary-text);
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.search-btn:hover {
+    color: var(--primary-text);
+    transform: scale(1.1);
+}
+
+/* Cartão do Tempo */
+.weather-info {
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.weather-card {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.city-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+.weather-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.temperature-container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
+
+.temperature {
+    font-size: 4rem;
+    font-weight: 300;
+}
+
+.unit {
+    font-size: 1.5rem;
+    font-weight: 300;
+    align-self: flex-start;
+    margin-top: 15px;
+}
+
+.weather-description {
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: var(--secondary-text);
+    margin-bottom: 25px;
+}
+
+.details-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+    text-align: center;
+}
+
+.detail-item i {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: var(--primary-text);
+}
+
+.detail-item span {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--primary-text);
+}
+
+/* Mensagem de Erro */
+.error-message {
+    color: var(--accent-color);
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+/* Classe de utilidade */
+.hidden {
+    display: none !important;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+    .app-title {
+        font-size: 1.5rem;
+    }
+    .temperature {
+        font-size: 3rem;
+    }
+    .unit {
+        font-size: 1.2rem;
+    }
+    .details-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

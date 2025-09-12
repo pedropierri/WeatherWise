@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherWise</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RMOeKTHg0p3QpL+OQ+o3Ua+8A+U6+v1g1s6a+O6m4t5c5S1n6d4U6v2o3t5+6" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <main class="container">
+        <header class="app-header">
+            <h1 class="app-title">WeatherWise</h1>
+        </header>
+
+        <form id="weather-form">
+            <div class="input-group">
+                <input type="text" id="city-input" placeholder="Enter city name" autocomplete="off">
+                <button type="submit" class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+
+        <section id="weather-info" class="weather-info hidden">
+            <div class="weather-card">
+                <h2 class="city-name" id="city-name"></h2>
+                <div class="weather-icon-container">
+                    <img id="weather-icon" src="" alt="Weather icon" class="weather-icon">
+                </div>
+                <div class="temperature-container">
+                    <span id="temperature" class="temperature"></span>
+                    <span class="unit">°C</span>
+                </div>
+                <p id="weather-description" class="weather-description"></p>
+                <div class="details-container">
+                    <div class="detail-item">
+                        <i class="fas fa-tint"></i>
+                        <span id="humidity"></span>
+                        <p>Humidity</p>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-wind"></i>
+                        <span id="wind-speed"></span>
+                        <p>Wind speed</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <p id="error-message" class="error-message hidden"></p>
+
+    </main>
+
+    <script src="javascript/script.js"></script>
+</body>
+</html>
