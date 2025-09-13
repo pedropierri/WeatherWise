@@ -87,15 +87,26 @@ body {
 
 .search-btn {
     padding: 15px 20px;
-    background: transparent;
+    background-color: var(--primary-text);
+    color: var(--card-bg);
     border: none;
+    border-radius: 0 10px 10px 0;
     cursor: pointer;
-    color: var(--secondary-text);
-    transition: color 0.3s ease, transform 0.2s ease;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .search-btn:hover {
-    color: var(--primary-text);
+    background-color: #1a2a36;
+    transform: none;
+}
+
+.search-btn i {
+    font-size: 1.2rem;
+}
+
+.search-btn:hover {
+    color: var(--card-bg);
     transform: scale(1.1);
 }
 
