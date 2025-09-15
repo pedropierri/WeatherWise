@@ -1,5 +1,10 @@
 const cityNameInput = document.querySelector('#city-input')
 const searchBtn = document.querySelector('.search-btn')
+const cityName = document.querySelector('#city-name')
+const temp = document.querySelector('#temperature')
+const humidity = document.querySelector('#humidity')
+const windSpeed = document.querySelector('#wind-speed')
+
 const API_KEY = '21ef802a34c403fb671820438d5f4248'
 
 searchBtn.addEventListener('click', setNewURL)
@@ -20,13 +25,20 @@ async function fetchWeather(newURL) {
         const response = await fetch(newURL)
         const data = await response.json()
 
-        const cityName = data.name
-        const temp = data.main.temp 
-        const windSpeed = data.wind.speed
-        const humidity = data.main.humidity
-        console.log(data, cityName, temp, windSpeed, humidity)
+        const city = data.name
+        const tempNumber = data.main.temp 
+        const windSpeedNumber = data.wind.speed
+        const humidityNumber = data.main.humidity
+        
+        showData(city, tempNumber, windSpeedNumber, humidityNUmber)
     } catch {
         console.log('teste erro')
     }
 }
 
+function showData(city, tempNumber, windSpeedNumber, humidityNumber) {
+    cityName.textContent = city
+    temp.textContent = tempNumber
+    windSpeed = windSpeedNumber
+    humidity = humidityNumber
+}
