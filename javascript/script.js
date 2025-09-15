@@ -19,9 +19,10 @@ function setNewURL(event) {
 }
 
 async function fetchWeather(newURL) {
-    console.log('comecou a fetch')
+    console.log('start fetch')
     console.log(newURL)
     try {
+        if (cityNameInput !== '') {
         const response = await fetch(newURL)
         const data = await response.json()
 
@@ -30,7 +31,9 @@ async function fetchWeather(newURL) {
         const windSpeedNumber = data.wind.speed
         const humidityNumber = data.main.humidity
         
-        showData(city, tempNumber, windSpeedNumber, humidityNUmber)
+        showData(city, tempNumber, windSpeedNumber, humidityNumber)
+        }
+        
     } catch {
         console.log('teste erro')
     }
@@ -39,6 +42,6 @@ async function fetchWeather(newURL) {
 function showData(city, tempNumber, windSpeedNumber, humidityNumber) {
     cityName.textContent = city
     temp.textContent = tempNumber
-    windSpeed = windSpeedNumber
-    humidity = humidityNumber
+    windSpeed.textContent = windSpeedNumber
+    humidity.textContent = humidityNumber
 }
